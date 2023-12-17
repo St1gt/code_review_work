@@ -8,10 +8,11 @@ public class Calculator {
     }
 
     public int div(int a, int b) {
-        if (b != 0) {
-            return a / b;
-        } else {
-            throw new ArithmeticException("Division by zero");
+        switch (b) {
+            case 0:
+                throw new ArithmeticException("На ноль делить нельзя!!!");
+            default:
+                return a / b;
         }
     }
 
@@ -25,15 +26,21 @@ public class Calculator {
         int operand2 = 3;
         char operation = '+';
 
-        if (operation == '+') {
-            result = add(operand1, operand2);
-        } else if (operation == '-') {
-            result = dif(operand1, operand2);
-        } else if (operation == '*') {
-            result = times(operand1, operand2);
-        } else if (operation == '/') {
-            result = div(operand1, operand2);
+        switch (operation) {
+            case '+':
+                result = add(operand1, operand2);
+                break;
+            case '-':
+                result = dif(operand1, operand2);
+                break;
+            case '*':
+                result = times(operand1, operand2);
+                break;
+            case '/':
+                result = div(operand1, operand2);
+                break;
         }
+
         return result;
     }
 }
